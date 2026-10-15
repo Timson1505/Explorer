@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Small-group walking and cycling tours in Budapest" />
+    <title>Budapest Explorer — Walking & Cycling Tours</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home">Budapest <i>Explorer</i></a>
+      <nav aria-label="Main navigation">
+        <a href="#tours">Tours</a><a href="#how">How it works</a><a href="#reviews">Reviews</a>
+      </nav>
+      <div id="account-actions"><button class="button button-quiet" data-action="open-auth">Sign in</button></div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow">WALKING & CYCLING TOURS · BUDAPEST</p>
+          <h1>Meet Budapest,<br>one story at a time.</h1>
+          <p>Follow hidden lanes, riverfront landmarks and remarkable local stories with the people who know the city best.</p>
+          <a class="button" href="#tours">Explore our tours <span>→</span></a>
+        </div>
+        <div class="hero-card"><span>Intentionally small</span><strong>14 guests max</strong><span>Local guides · instant confirmation</span></div>
+      </section>
+
+      <section class="section" id="tours"><div class="section-heading"><div><p class="eyebrow">CURATED ROUTES</p><h2>Find your side of Budapest</h2></div><div class="filters"><select id="type-filter" aria-label="Tour type"><option value="">All experiences</option><option value="walking">Walking tours</option><option value="cycling">Cycling tours</option></select><input id="date-filter" type="date" aria-label="Tour date" /></div></div><div class="tour-grid" id="tour-list" aria-live="polite"><p class="muted">Loading experiences…</p></div></section>
+
+      <section class="how section" id="how"><p class="eyebrow">THE EASY WAY TO EXPLORE</p><h2>Three steps to the city</h2><div class="steps"><article><b>01</b><h3>Choose your pace</h3><p>Pick a walking or cycling experience that feels like you.</p></article><article><b>02</b><h3>Reserve your place</h3><p>Book in a few clicks and keep every plan in one account.</p></article><article><b>03</b><h3>See it differently</h3><p>Meet your guide, follow their lead and make the city your own.</p></article></div></section>
+
+      <section class="section reviews" id="reviews"><p class="eyebrow">GUEST NOTES</p><h2>Stories from the road</h2><div id="review-list" class="review-grid"><p class="muted">Reviews from our guests will appear here.</p></div></section>
+    </main>
+    <footer><strong>Budapest Explorer</strong><span>Small groups. Big city stories.</span><span>© 2026</span></footer>
+
+    <dialog id="auth-dialog"><button class="dialog-close" data-action="close-dialog" aria-label="Close">×</button><p class="eyebrow">GUEST ACCOUNT</p><h2>Welcome back</h2><form id="auth-form"><label>Email address<input required type="email" name="email" autocomplete="email" placeholder="you@example.com" /></label><label>Password<input required minlength="8" type="password" name="password" autocomplete="current-password" placeholder="At least 8 characters" /></label><p id="auth-message" class="form-message"></p><div class="form-actions"><button class="button" type="submit" name="mode" value="login">Sign in</button><button class="button button-quiet" type="submit" name="mode" value="signup">Create account</button></div></form></dialog>
+
+    <dialog id="booking-dialog"><button class="dialog-close" data-action="close-dialog" aria-label="Close">×</button><p class="eyebrow">YOUR BOOKING</p><h2 id="booking-title">Choose a departure</h2><form id="booking-form"><input type="hidden" name="tourId" /><label>Date & time<select required name="departureId" id="departure-select"><option value="">Choose a departure</option></select></label><label>Number of guests<input required name="guests" type="number" min="1" max="14" value="2" /></label><label>A note for your guide <span class="hint">optional</span><textarea name="guestNote" maxlength="500" placeholder="For example: child seat, accessibility or dietary needs…"></textarea></label><p id="booking-message" class="form-message"></p><button class="button" type="submit">Confirm booking</button></form></dialog>
+
+    <dialog id="account-dialog"><button class="dialog-close" data-action="close-dialog" aria-label="Close">×</button><div id="account-content"></div></dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
